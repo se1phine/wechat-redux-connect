@@ -1,0 +1,23 @@
+{
+  "name": "wechat-redux-connect",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./dist/wechat-redux-connect.js",
+  "scripts": {
+    "build": "rollup -c ./rollup.config.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@rollup/plugin-babel": "^5.0.4",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "rollup": "^2.19.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}
