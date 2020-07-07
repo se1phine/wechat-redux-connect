@@ -1,6 +1,10 @@
 ### 使用
 1. 下载编译后的文件 [wechat-redux-connect.min.js](https://github.com/se1phine/wechat-redux-connect/releases/download/0.1.0/wechat-redux-connect.min.js)
-2. 简单示例，[代码片段](https://developers.weixin.qq.com/s/7hTkREmn7DiC)
+2. connect使用的 [xixilive/redux-weapp](https://github.com/xixilive/redux-weapp)
+，并增加 mapState 的逻辑：
+   1. connectPage 不传入 `onStateChange` 时默认设置 data
+   2. connectApp 不传入 `onStateChange` 时默认设置 globalData
+3. 简单示例，[代码片段](https://developers.weixin.qq.com/s/7hTkREmn7DiC)
 ``` javascript
 // connector.js
 import connector from '../lib/wechat-redux-connect.min';
