@@ -4,7 +4,7 @@ import { combineReducers, createStore } from 'redux/dist/redux.min';
 
 let store;
 
-const INITITAL_REDUCER = (state, action) => {
+const INITITAL_REDUCER = (state = {}, action) => {
   if (action.type === 'UPDATE_STATE') {
     return { ...state, ...action.payload };
   }
