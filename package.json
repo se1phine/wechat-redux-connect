@@ -2,7 +2,7 @@
   "name": "wechat-redux-connect",
   "version": "0.1.0",
   "description": "",
-  "main": "./dist/wechat-redux-connect.js",
+  "main": "./dist/wechat-redux-connect.min.js",
   "scripts": {
     "build": "rollup -c ./rollup.config.js"
   },
