@@ -11,6 +11,7 @@
   "dependencies": {
     "redux": "^4.0.5"
   },
+  "repository": "https://github.com/se1phine/wechat-redux-connect",
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
