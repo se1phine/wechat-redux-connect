@@ -1,6 +1,6 @@
 {
   "name": "wechat-redux-connect",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "./dist/wechat-redux-connect.min.js",
   "scripts": {
@@ -9,16 +9,20 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "redux": "^4.0.5"
+    "@redux-saga/core": "^1.1.3",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   },
   "repository": "https://github.com/se1phine/wechat-redux-connect",
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@rollup/plugin-babel": "^5.0.4",
-    "@rollup/plugin-commonjs": "^13.0.0",
-    "@rollup/plugin-node-resolve": "^8.1.0",
-    "rollup": "^2.19.0",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^13.0.2",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "rollup": "^2.28.1",
+    "rollup-plugin-banner": "^0.2.1",
     "rollup-plugin-uglify": "^6.0.4"
   }
 }
