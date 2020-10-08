@@ -9,7 +9,7 @@ const setStore = _store => {
   store = _store;
 };
 
-const getConnector = (mapStateToData, mapDispathToData) => {
+const getConnector = mapStateToData => {
   if (store === null) throw new Error('Please set store first!');
 
   let subscription = null;
@@ -17,16 +17,16 @@ const getConnector = (mapStateToData, mapDispathToData) => {
 
   const createListener = (context) => {
     let prevState;
-    const listener = function (state, ...args) {
+    const listener = function (state, action) {
       const nextState = mapStateToData(state);
       if (shallowEqual(nextState, prevState)) {
         return;
       }
       if (listener.isActive) {
         listener.stashed = null;
-        context.onStateChange.call(context, nextState, prevState, ...args);
+        context.onStateChange(nextState, prevState, action);
       } else {
-        listener.stashed = [nextState, prevState];
+        listener.stashed = [nextState, prevState, action];
       }
       prevState = nextState;
     };
@@ -56,15 +56,8 @@ const getConnector = (mapStateToData, mapDispathToData) => {
     };
   };
 
-  const injectOnStateChange = (handler) => {
-    return function () {
-      if (!handler) return this.setData({ ...this.data, ...Array.prototype.shift.call(arguments) });
-      return callInContext(handler, this, arguments);
-    };
-  };
-
   const injectPageLifeCycle = (config) => {
-    const {onLoad, onUnload, onShow, onHide, onStateChange} = config;
+    const { onLoad, onUnload, onShow, onHide, onStateChange } = config;
 
     return {
       onLoad: function () {
@@ -78,7 +71,13 @@ const getConnector = (mapStateToData, mapDispathToData) => {
       onUnload: isFn(onUnload) ? onUnload : noop,
       onShow: isFn(onShow) ? onShow : noop,
       onHide: isFn(onHide) ? onHide : noop,
-      onStateChange: injectOnStateChange(onStateChange, 'page')
+      onStateChange: function (nextState) {
+        if (!onStateChange) {
+          this.setData({ ...nextState });
+        } else {
+          callInContext(onStateChange, this, arguments);
+        }
+      },
     };
   };
 
@@ -93,14 +92,12 @@ const getConnector = (mapStateToData, mapDispathToData) => {
   };
 
   return config => {
-    const overrides = isFn(mapStateToData) ? mapDispathToData(store.dispatch) : {};
-    const mergedConfig = {...config, ...overrides};
     if (!isFn(mapStateToData)) {
-      return mergedConfig;
+      return config;
     }
     setupSubscription();
-    return {...mergedConfig, ...injectPageLifeCycle(mergedConfig)};
-  }
+    return { ...config, ...injectPageLifeCycle(config) };
+  };
 };
 
 export default {
@@ -109,4 +106,5 @@ export default {
   SagaEffects,
   setStore,
   getConnector,
-}
+  dispatch: (action) => store ? store.dispatch(action) : noop(),
+};
