@@ -1,12 +1,13 @@
 {
   "name": "wechat-redux-connect",
-  "version": "0.3.0",
-  "description": "",
+  "version": "0.3.0-1",
+  "description": "wechat app redux connector",
   "main": "./dist/wechat-redux-connect.min.js",
   "scripts": {
     "build": "rollup -c ./rollup.config.js"
   },
-  "author": "",
+  "typings": "typings/index.d.ts",
+  "author": "selphine",
   "license": "MIT",
   "dependencies": {
     "@redux-saga/core": "^1.1.3",
