@@ -1,21 +1,21 @@
 {
   "name": "wechat-redux-connect",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "wechat app redux connector",
   "main": "./dist/wechat-redux-connect.min.js",
   "scripts": {
     "build": "rollup -c ./rollup.config.js"
   },
+  "miniprogram": "dist/wechat-redux-connect",
   "typings": "typings/index.d.ts",
   "author": "selphine",
   "license": "MIT",
-  "dependencies": {
-    "@redux-saga/core": "^1.1.3",
-    "redux": "^4.0.5",
-    "redux-saga": "^1.1.3"
-  },
+  "dependencies": {},
   "repository": "https://github.com/se1phine/wechat-redux-connect",
   "devDependencies": {
+    "@redux-saga/core": "^1.1.3",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@rollup/plugin-babel": "^5.2.1",

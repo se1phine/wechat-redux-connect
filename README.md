@@ -7,7 +7,7 @@ redux + redux-saga + connector bundle
 ### 使用npm
 1. `npm i -S wechat-redux-connect`
 2. 微信开发者工具 - 构建npm
-3. [简单示例](https://developers.weixin.qq.com/s/xTMI8Xmm74kD)
+3. [简单示例](https://developers.weixin.qq.com/s/b43ycYmd7Ck8)
 
 ### 参考
 1. [微信小程序npm第三方包全局变量 process.env.NODE 未定义](https://developers.weixin.qq.com/community/develop/doc/00020e18868198cdf2e7395945d800)
